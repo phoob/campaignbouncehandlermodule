@@ -61,7 +61,7 @@ class BounceHandler extends Component
     public function callbackAction($msgnum, $bounceType, $email, $subject, $xheader, $remove, $ruleNo = false, $ruleCat = false, $totalFetched = 0, $body = '', $headerFull = '', $bodyFull = '')
     {
         // Extract sendout id from message body
-        preg_match("/" . WebhookController::HEADER_NAME . ": (?<sid>\S\\*)/", $bodyFull, $matches);
+        preg_match("/" . WebhookController::HEADER_NAME . ": (?<sid>\S*)/", $bodyFull, $matches);
         $sid = $matches['sid'] ?? null;
 
         if ($sid === null) {
